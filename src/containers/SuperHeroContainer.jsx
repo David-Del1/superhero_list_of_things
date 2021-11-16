@@ -1,13 +1,18 @@
 import React, { useEffect, useState } from 'react';
-import CharacterCard from '../components/CharacterCard';
+import CharacterCard from '../components/characterCard/CharacterCard';
+import CharacterList from '../components/characterList/CharacterList';
+import CharacterSearch from '../components/search/CharacterSearch';
 
 import './SuperHeroContainer.scss';
 
 const URL = "https://akabab.github.io/superhero-api/api/all.json";
 
-const SuperHeroContainer = () => {
+const SuperHeroContainer = ({ superHeros }) => {
   const [loading, setLoading] = useState(true);
   const [characters, setCharacters] = useState([]);
+  const [searchField, setSearchField] = useState('');
+
+
 
   useEffect( () => {
     async function fetchCharacters() {
@@ -19,14 +24,18 @@ const SuperHeroContainer = () => {
     fetchCharacters();
   }, []);
 
+  const filteredCharacters = characters.filter(hero => hero.name.toLowerCase().includes(searchField.toLowerCase()));
+
   return (
     <>
       {loading && <h1>Loading...</h1>}
-      <ul className="SuperHeroContainer">
-        {characters.map(character => (
-          <CharacterCard key={character.id} character={character} />
-        ))}
-      </ul>
+      <div className="SuperHeroContainer">
+        <h1>Hero Rolodex</h1>
+        <CharacterSearch 
+          handleChange={e => setSearchField(e.target.value)}
+        />
+        <CharacterList characters={filteredCharacters} />
+      </div>
     </>
   );
 }

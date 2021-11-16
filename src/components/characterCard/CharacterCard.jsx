@@ -10,7 +10,6 @@ const CharacterCard = ({ character }) => {
       onMouseEnter={() => setShowStats(true)}
       onMouseLeave={() => setShowStats(false)}
     >
-      {/* <img src={character.images?.sm} alt="" style={{maxHeight: '100%'}} /> */}
       <div className={ showStats ? "characterImageStatsVisible" : "characterImageDefault"} style={{backgroundImage: `url(${character.images.md})`}}>
         <h2>
         {character.name}
@@ -35,8 +34,8 @@ const CharacterCard = ({ character }) => {
           {character.powerstats.speed}
         </p>
         <p>
-          <strong>Strength:</strong>{' '}
-          {character.powerstats.speed}
+          <strong>Combat:</strong>{' '}
+          {character.powerstats.combat}
         </p>
         <p>
           <strong>Durability:</strong>{' '}
