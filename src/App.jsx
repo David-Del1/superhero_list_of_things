@@ -1,11 +1,12 @@
 import React from 'react';
-import HeyArnold from './containers/HeyArnold';
+import SuperHeroContainer from './containers/SuperHeroContainer';
+// import './styles/globals.scss';
 
 const App = () => {
 
   return (
-    <div>
-      <HeyArnold />
+    <div className="App">
+      <SuperHeroContainer />
     </div>
   )
 }
