@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import CharacterCard from '../components/characterCard/CharacterCard';
 import CharacterList from '../components/characterList/CharacterList';
 import CharacterSearch from '../components/search/CharacterSearch';
 
