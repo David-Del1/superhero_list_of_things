@@ -26,13 +26,13 @@ const SuperHeroContainer = () => {
     fetchCharacters();
   }, []);
 
-  function DisableScroll() {
-    useEffect(() => {
-      window.scrollTo(0, 100000);
-    }, []);
+  // function DisableScroll() {
+  //   useEffect(() => {
+  //     window.scrollTo(0, 10000);
+  //   }, []);
 
-    return null;
-  }
+  //   return null;
+  // }
 
   // Get current characters
   const indexOfLastCharacter = currentPage * charactersPerPage;
@@ -53,7 +53,7 @@ const SuperHeroContainer = () => {
         />
         <CharacterList characters={filteredCharacters} indexOfFirstCharacter={indexOfFirstCharacter} indexOfLastCharacter={indexOfLastCharacter} />
       <Pagination charactersPerPage={charactersPerPage} totalCharacters={characters.length} paginate={paginate} currentPage={currentPage} />
-      <DisableScroll />
+      {/* <DisableScroll /> */}
       </div>
     </>
   );
