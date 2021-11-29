@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
 import './CharacterCard.scss';
+import FavoriteIcon from '@mui/icons-material/Favorite';
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 
 const CharacterCard = ({ character }) => {
   const [showStats, setShowStats] = useState(false);
+  const [isFavorited, setIsFavorited] = useState(false);
 
   return (
     <>
@@ -11,6 +14,15 @@ const CharacterCard = ({ character }) => {
       onMouseLeave={() => setShowStats(false)}
     >
       <div className={ showStats ? "characterImageStatsVisible" : "characterImageDefault"} style={{backgroundImage: `url(${character.images.md})`}}>
+        {isFavorited 
+        ? <FavoriteIcon 
+            className="favoriteBtn" 
+            onClick={() => setIsFavorited(false)}
+          /> 
+        : <FavoriteBorderIcon 
+            className="favoriteBtn"
+            onClick={() => setIsFavorited(true)}
+          />}
         <h2>
         {character.name}
         </h2>

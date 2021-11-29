@@ -47,7 +47,6 @@ const SuperHeroContainer = () => {
     <>
       {loading && <h1>Loading...</h1>}
       <div className="SuperHeroContainer">
-        <h1>Hero Rolodex</h1>
         <CharacterSearch 
           handleChange={e => setSearchField(e.target.value)}
         />

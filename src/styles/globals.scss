@@ -12,6 +12,11 @@ body {
   background-color: rgb(218, 223, 224);
 }
 
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
 .App {
   display: flex;
   justify-content: center;
