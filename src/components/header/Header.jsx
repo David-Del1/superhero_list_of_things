@@ -12,9 +12,9 @@ const Header = () => {
           </h1>
 
       <div className="links">
-        <a href="#">
+        {/* <a href="#">
           Log in
-        </a>
+        </a> */}
       </div>
     </div>
   )
