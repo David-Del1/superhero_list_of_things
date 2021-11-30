@@ -45,5 +45,10 @@
     margin: 0 25px;
     font-size: 30px;
     cursor: pointer;
+    border: 1px solid steelblue;
+    border-radius: 5px;
+    padding: 0 10px;
+    display: flex;
+    align-items: center;
   }
 }

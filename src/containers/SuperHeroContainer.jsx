@@ -39,7 +39,6 @@ const SuperHeroContainer = () => {
   const indexOfFirstCharacter = indexOfLastCharacter - charactersPerPage;
 
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
-  // console.log(currentPage);
 
   const filteredCharacters = characters.filter(hero => hero.name.toLowerCase().includes(searchField.toLowerCase()));
 
@@ -51,7 +50,7 @@ const SuperHeroContainer = () => {
           handleChange={e => setSearchField(e.target.value)}
         />
         <CharacterList characters={filteredCharacters} indexOfFirstCharacter={indexOfFirstCharacter} indexOfLastCharacter={indexOfLastCharacter} />
-      <Pagination charactersPerPage={charactersPerPage} totalCharacters={characters.length} paginate={paginate} currentPage={currentPage} />
+        <Pagination charactersPerPage={charactersPerPage} totalCharacters={characters.length} paginate={paginate} currentPage={currentPage} />
       {/* <DisableScroll /> */}
       </div>
     </>
