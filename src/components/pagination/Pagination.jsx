@@ -23,52 +23,80 @@ const Pagination = ({ charactersPerPage, totalCharacters, paginate, currentPage 
           pageNumbers.map(num => (
             
             <li key={num} className={num === currentPage ? 'active' : 'default'}>
-              <a onClick={() => paginate(num)} href="!#">
+              <span onClick={() => paginate(num)} >
                 {num}
-              </a>
+              </span>
               
             </li>
           )).slice(currentPage - 1, currentPage + 3)
         }
         {(currentPage === 26 || currentPage === 27 || currentPage === 28 || currentPage === 29) ? null : '...' }
 
-        {currentPage !== pageNumbers.length ? <button 
-          onClick={() => paginate(currentPage + 1)}
-          className="pagination-arrow"
-        >
-        {'→'}
-        </button>
+        {currentPage !== pageNumbers.length 
+          ? <>
+              <button 
+                onClick={() => paginate(currentPage + 1)}
+                className="pagination-arrow"
+              >
+                {'→'}
+              </button>
+              <button 
+                className="end-arrow"
+                onClick={() => paginate(pageNumbers.length)}
+              >
+                {'>>'}
+              </button>
+            </>
         : null}
       </ul> 
         : 
         <ul className="Pagination">
           {currentPage !== 1 
-            ? <button 
+            ? <>
+              <button 
+                className="end-arrow"
+                onClick={() => paginate(1)}
+
+              >
+                {'<<'}
+              </button>
+            <button 
                 onClick={() => paginate(currentPage - 1)}
                 className="pagination-arrow"
               >
                 {'←'}
               </button>
+             
+              </>
             : null}
           {
             pageNumbers.map(num => (
               
               <li key={num} className={num === currentPage ? 'active' : 'default'}>
-                <a onClick={() => paginate(num)} href="!#">
+                <span onClick={() => paginate(num)}>
                   {num}
-                </a>
+                </span>
                 
               </li>
             )).slice(currentPage - 2, currentPage + 3)
           }
           {(currentPage === 26 || currentPage === 27 || currentPage === 28 || currentPage === 29) ? null : '...' }
 
-          {currentPage !== pageNumbers.length ? <button 
-            onClick={() => paginate(currentPage + 1)}
-            className="pagination-arrow"
-          >
-          {'→'}
-          </button>
+          {currentPage !== pageNumbers.length 
+            ? <>
+              <button 
+                onClick={() => paginate(currentPage + 1)}
+                className="pagination-arrow"
+              >
+                {'→'}
+              </button>
+              <button 
+                className="end-arrow"
+                onClick={() => paginate(pageNumbers.length)}
+              >
+                {'>>'}
+              </button>
+            </>
           : null}
         </ul>
         }
